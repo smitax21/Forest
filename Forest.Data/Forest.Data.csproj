@@ -51,10 +51,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DAO\ArtistDAO.cs" />
     <Compile Include="DAO\GenreDAO.cs" />
     <Compile Include="DAO\MusicDAO.cs" />
+    <Compile Include="DAO\UserDAO.cs" />
+    <Compile Include="IDAO\IArtistDAO.cs" />
     <Compile Include="IDAO\IGenreDAO.cs" />
     <Compile Include="IDAO\IMusicDAO.cs" />
+    <Compile Include="IDAO\IUserDAO.cs" />
     <Compile Include="Models\Domain\Artist.cs" />
     <Compile Include="Models\Domain\Genre.cs" />
     <Compile Include="Models\Domain\Music.cs" />

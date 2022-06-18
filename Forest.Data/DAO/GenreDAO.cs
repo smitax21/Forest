@@ -12,27 +12,24 @@ namespace Forest.Data.DAO
 {
     public class GenreDAO : IGenreDAO
     {
-        private ForestContext context;
-
-        public GenreDAO()
-        {
-            context = new ForestContext();
-        }
-
-        public IList<Genre> GetGenres()
+        public IList<Genre> GetGenres(ForestContext context)
         {
             return context.Genres.ToList();
         }
 
         //For GetGenre
-        public Genre GetGenre(int id)
+        public Genre GetGenre(int id, ForestContext context)
         {
             IList<Genre> genreList = context.Genres.Include(g => g.Musics).ToList();
             var genre = context.Genres.Find(id);
             
             return genre;
+        }
 
-
+        public void AddMusicToCollection(Music music, Genre genre, ForestContext context)
+        {
+            // context.Musics.Add(music);
+            context.Genres.Find(genre).Musics.Add(music);
         }
     }
 }

@@ -18,21 +18,25 @@ namespace Forest.Data.DAO
         {
             context = new ForestContext();
         }
-
         //For GetMusics
-        public IList<Music> GetMusics(int id)
+        public IList<Music> GetMusics(int id, ForestContext context)
         {
             Genre genre = context.Genres.Find(id);
-            IList<Music> music = context.Genres.Find(id).Musics.ToList();
+            IList<Music> music = genre.Musics.ToList();
             return music;
 
         }
-        public Music GetMusic(int id)
+        public Music GetMusic(int id, ForestContext context)
         {
 
             var music = context.Musics.Find(id);
             return music;
 
+        }
+
+        public void AddMusic(Music music, ForestContext context)
+        {
+            context.Musics.Add(music);
         }
     }
 }

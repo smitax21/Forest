@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Forest.Data.Repository;
 
 namespace Forest.Services.Service
 {
@@ -21,12 +22,18 @@ namespace Forest.Services.Service
         //For Music
         public IList<Music> GetMusics(int id)
         {
-            var getMusicObject = musicDAO.GetMusics(id);
-            return getMusicObject;
+            using( var context = new ForestContext())
+            {
+                var getMusicObject = musicDAO.GetMusics(id, context);
+                return getMusicObject;
+            }
         }
         public Music GetMusic(int id)
         {
-            return musicDAO.GetMusic(id);
+            using (var context = new ForestContext())
+            {
+                return musicDAO.GetMusic(id, context);
+            }
         }
     }
 }
