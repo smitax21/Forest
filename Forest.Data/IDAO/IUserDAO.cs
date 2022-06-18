@@ -11,5 +11,6 @@ namespace Forest.Data.IDAO
     public interface IUserDAO
     {
         void AddMusicToCollection(Music music, string userId, ForestContext context);
+        void AddToCollection(string userId, Music newMusic, ForestContext context);
     }
 }

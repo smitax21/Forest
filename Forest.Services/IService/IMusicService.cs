@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Forest.Services.Models;
 
 namespace Forest.Services.IService
 {
@@ -12,5 +13,6 @@ namespace Forest.Services.IService
         //For Music
         IList<Music> GetMusics(int id);
         Music GetMusic(int id);
+        void AddMusic(MusicGenreArtist musicGenreArtist, string userId);
     }
 }

@@ -31,5 +31,10 @@ namespace Forest.Data.DAO
             // context.Musics.Add(music);
             context.Genres.Find(genre).Musics.Add(music);
         }
+
+        public void AddToCollection(Genre genre, Music newMusic, ForestContext context)
+        {
+            context.Genres.Find(genre).Musics.Add(newMusic);
+        }
     }
 }
