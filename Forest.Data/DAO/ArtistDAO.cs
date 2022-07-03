@@ -9,15 +9,15 @@ using System.Threading.Tasks;
 
 namespace Forest.Data.DAO
 {
-    public class ArtistDAO
+    public class ArtistDAO : IArtistDAO
     {
         public IList<Artist> GetArtists(int id, ForestContext context)
         {
-            return (IList<Artist>) context.Genres.ToList();
+            return context.Artists.ToList();
         }
         public void AddMusicToCollection(Music music, Artist artist, ForestContext context)
         {
-            context.Artists.Find(artist).Musics.Add(music);
+            context.Artists.Find(artist.ID).Musics.Add(music);
         }
     }
 }

@@ -169,8 +169,10 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\GenreController.cs" />
+    <Compile Include="Controllers\Helper.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\MusicAdminController.cs" />
     <Compile Include="Controllers\MusicController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -240,7 +242,8 @@
     <Content Include="Views\Genre\GetGenres.cshtml" />
     <Content Include="Views\Genre\GetGenre.cshtml" />
     <Content Include="Views\Music\GetMusic.cshtml" />
-    <Content Include="Views\Genre\GetMusics.cshtml" />
+    <Content Include="Views\Music\GetMusics.cshtml" />
+    <Content Include="Views\MusicAdmin\AddMusic.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

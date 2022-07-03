@@ -16,14 +16,16 @@ namespace Forest.Services.Service
     {
         private IMusicDAO musicDAO;
         private IGenreDAO genreDAO;
-        private IUserDAO userDAO;
         private IArtistDAO artistDAO;
+        private IUserDAO userDAO;
+
         public MusicService()
         {
             musicDAO = new MusicDAO();
             genreDAO = new GenreDAO();
-            //userDAO = new UserDAO();
-            //artistDAO = new ArtistDAO();
+            artistDAO = new ArtistDAO();
+            userDAO = new UserDAO();
+
         }
 
         //For Music
@@ -62,12 +64,12 @@ namespace Forest.Services.Service
             using (var context = new ForestContext())
             {
                 //context object is created
-                musicDAO.AddMusic(newMusic, context); //Add music
+                musicDAO.AddMusic(newMusic, context);//Add Music
                 Genre genre = genreDAO.GetGenre(musicGenreArtist.Genre, context); //Create Genre object
-                genreDAO.AddToCollection(genre, newMusic, context);//Add music to collection of Genre
-                Artist artist = (Artist)artistDAO.GetArtists(musicGenreArtist.Artist, context);
-                artistDAO.AddToCollection(artist, newMusic, context);//Add music to collection of Artist
-                userDAO.AddToCollection(userId, newMusic, context);//Add music to collection of User
+                genreDAO.AddMusicToCollection(newMusic, genre, context); //Add music to collection of Genre
+                Artist artist = (Artist)artistDAO.GetArtists(musicGenreArtist.Artist, context); //Create Artist object
+                artistDAO.AddMusicToCollection(newMusic, artist, context);//Add Music to collection of Artist
+                userDAO.AddMusicToCollection(newMusic, userId, context);
 
                 context.SaveChanges();
             }//Context object is disposed

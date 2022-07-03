@@ -15,6 +15,5 @@ namespace Forest.Data.IDAO
         Genre GetGenre(int id, ForestContext context);
 
         void AddMusicToCollection(Music music, Genre genre, ForestContext context);
-        void AddToCollection(Genre genre, Music newMusic, ForestContext context);
     }
 }

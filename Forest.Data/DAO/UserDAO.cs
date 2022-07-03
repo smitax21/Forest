@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Forest.Data.DAO
 {
-    public class UserDAO
+    public class UserDAO : IUserDAO
     {
         public void AddMusicToCollection(Music music, string userId, ForestContext context)
         {

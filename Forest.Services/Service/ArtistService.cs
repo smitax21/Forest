@@ -7,12 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Forest.Data.DAO;
+using Forest.Data.IDAO;
 
 namespace Forest.Services.Service
 {
     public class ArtistService : IArtistService
     {
-        private ArtistDAO artistDAO;
+        private IArtistDAO artistDAO;
         public ArtistService()
         {
             artistDAO = new ArtistDAO();
